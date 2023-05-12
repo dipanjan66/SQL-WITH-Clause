@@ -1,0 +1,17 @@
+
+-- WITH Clause:===>
+
+-- WITH Clause also reffers to => CTE (Common Table Expression) or Sub Query Factory
+
+----------------------------------------------------------
+
+-- Q. Fetch Employees who earn more than average salary of all employees?
+
+
+
+with average_salary (avg_sal) AS
+                 (select cast(avg(salary) as int) from employee)
+select * 
+from employee e, average_salary av
+WHERE e.salary > av.avg_sal;
+
